@@ -1,6 +1,6 @@
 //: Playground - noun: a place where people can play
 
-import UIKit
+import Foundation
 
 //In Out
 var str = "Initial String Scope"
