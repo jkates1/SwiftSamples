@@ -80,4 +80,49 @@ let numbers = Array(1...10).reduce("numbers: ") {(total, number) in
 }
 print(numbers)
 
+let strings2 = ["Jeff","Jared","Jimmy","Kevin","Larry"].reduce("") { (name, longName) in
+    return name + longName + " "
+}
+print(strings2)
 
+let strings3 = ["Frank", "Devin", "Mark","jerry"].reduce("") { (name, upperCase) in
+    
+    return name + upperCase.uppercaseString + " "
+
+}
+//Take input array of string digits and return
+let digits = ["3","1","4","1"].reduce(0) { (digit, number) in
+    if let result = Int("\(String(digit) + number)") {
+        return result
+    } else {
+        return 0
+    }
+    
+}
+
+//Generic Fib Sequence Generator Func
+//Print Fib Sequence Starting at 1 without handling first few cases in series 0,1...
+func enumerateFibs() -> [Int] {
+    
+    var fibArray = [Int]()
+    var leftSummands = 0
+    var rightSummands = 1
+    var currentSum = 0
+    
+    while currentSum <= 1000 {
+        
+       currentSum = leftSummands + rightSummands
+       fibArray.append(currentSum)
+       leftSummands = rightSummands
+       rightSummands = currentSum
+       
+        
+    }
+    
+    return fibArray
+    
+}
+
+enumerateFibs()
+
+////
