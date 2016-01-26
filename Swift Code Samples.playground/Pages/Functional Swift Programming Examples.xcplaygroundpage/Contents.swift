@@ -2,7 +2,7 @@ import Foundation
 
 
 //*****************Array Filtering*****************//
-/*  This method, exposed by Array, creates and returns a new array that contains only the items for which the given function returns true.
+/*  This method creates and returns a new array that contains only the items for which the given function returns true.
 */
 
 var evens = [Int]() // Empty Initialized Global Array 
