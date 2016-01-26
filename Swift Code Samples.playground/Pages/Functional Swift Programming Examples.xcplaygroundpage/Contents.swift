@@ -57,6 +57,7 @@ var filteredString = myFilter(["John","Lisa","Don","Phil","Robert"], predicate: 
 })
 
 
+
 //*********REDUCING************//
 //Reduce is a tremendously versatile Array method that executes a function
 // once for each element, accumulating the results.
@@ -118,9 +119,28 @@ let customReduceCall = ["Frank", "Devin", "Mark","jerry"].myReduce("") { (name, 
 //***************MAP******************//
 //MAP is ran on each element with given closure
 
-let mapArray = [3,2,32,22,15,23,3].map { (number: Int) in
-    return 3 * number
+let mapArray = [3,2,32,22,15,23,3]
+    
+mapArray.map { (number: Int) in
+    return 3 * number.predecessor()
 }
+
+mapArray.map { (number: Int) in
+    return number + number.advancedBy(2)
+}
+
+mapArray.map { (number) in
+    return String(number * 3)
+}
+//Return Circumference given diameter
+mapArray.map { (diameter) in
+    
+    return Double(diameter) * M_PI
+    
+}
+
+
+
 
 
 

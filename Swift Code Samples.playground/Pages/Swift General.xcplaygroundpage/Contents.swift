@@ -12,7 +12,7 @@ func mutateString(inout str: String) {
 //Outside of Funciton Scope
 mutateString(&str)
 
-//Sum of Numbers given in argument
+//Sum of Numbers given in variadic argument
 func sumOf(numbers: Int...) -> Int {
     var sum = 0
     
