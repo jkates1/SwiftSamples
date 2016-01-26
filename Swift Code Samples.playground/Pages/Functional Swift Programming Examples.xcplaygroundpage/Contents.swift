@@ -100,29 +100,30 @@ let digits = ["3","1","4","1"].reduce(0) { (digit, number) in
     
 }
 
-//Generic Fib Sequence Generator Func
-//Print Fib Sequence Starting at 1 without handling first few cases in series 0,1...
-func enumerateFibs() -> [Int] {
-    
-    var fibArray = [Int]()
-    var leftSummands = 0
-    var rightSummands = 1
-    var currentSum = 0
-    
-    while currentSum <= 1000 {
-        
-       currentSum = leftSummands + rightSummands
-       fibArray.append(currentSum)
-       leftSummands = rightSummands
-       rightSummands = currentSum
-       
-        
+extension Array {
+    func myReduce<T, U>(seed: U, combiner:(U, T) -> U) -> U {
+        var current = seed
+        for item in self {
+            current = combiner(current, item as! T)
+        }
+        return current
     }
-    
-    return fibArray
-    
 }
 
-enumerateFibs()
+let customReduceCall = ["Frank", "Devin", "Mark","jerry"].myReduce("") { (name, upperCase: String) in
+    
+    return name + upperCase.uppercaseString + " "
+}
 
-////
+//***************MAP******************//
+//MAP is ran on each element with given closure
+
+let mapArray = [3,2,32,22,15,23,3].map { (number: Int) in
+    return 3 * number
+}
+
+
+
+
+
+

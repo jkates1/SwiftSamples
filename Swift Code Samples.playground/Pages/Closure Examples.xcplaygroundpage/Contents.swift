@@ -3,7 +3,7 @@ import Foundation
 func closureExample(name: String) -> () -> String {
     
     func addLastName() -> String {
-        let fullName = name + " Johnson"
+        let fullName = name + " Kates"
         return fullName
     }
     
@@ -12,7 +12,5 @@ func closureExample(name: String) -> () -> String {
 
 let functionArg = closureExample("Jeremy")
 
-functionArg()
-
-
-
+let myName = "FullName: " + functionArg()
+print(myName)

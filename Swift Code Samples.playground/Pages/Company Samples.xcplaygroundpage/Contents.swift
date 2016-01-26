@@ -6,8 +6,8 @@
 //
 import UIKit
 
-let yourCompany = "Climate Corporation"
-let yourCorpUrl = "http://www.climatecorp.com"
+let yourCompany = "Your Corporation"
+let yourCorpUrl = "http://www.yourcorp.com"
 
 //Reverse a String
 
@@ -99,5 +99,33 @@ for row in genericClass.data {
 class SampleTableView: UITableView {
     
 }
+
+//Generic Fib Sequence Generator Func
+//Print Fib Sequence Starting at 1 without handling first few cases in series 0,1...
+func enumerateFibs() -> [Int] {
+    
+    var fibArray = [Int]()
+    var leftSummands = 0
+    var rightSummands = 1
+    var currentSum = 0
+    
+    while currentSum <= 1000 {
+        
+        currentSum = leftSummands + rightSummands
+        fibArray.append(currentSum)
+        leftSummands = rightSummands
+        rightSummands = currentSum
+        
+        
+    }
+    
+    return fibArray
+    
+}
+
+enumerateFibs()
+
+////
+
 
 
