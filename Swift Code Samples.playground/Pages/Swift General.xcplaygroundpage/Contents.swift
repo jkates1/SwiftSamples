@@ -159,7 +159,15 @@ func isEvenNumber(number: Int) -> Bool {
 isEvenNumber(25)
 isEvenNumber(20)
 
+func multiplyIntegers(numbers: Int...) -> Int {
+    
+    var product = 1
+    
+    for number in numbers {
+       product *= number
+    }
+    return product
+}
 
-
-
+multiplyIntegers(2,3,5,2,5)
 
