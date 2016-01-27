@@ -151,6 +151,7 @@ let mappedNumber = numbers.map ({ (number: Int) -> Int in
     return result
 })
 
+//Simple Even number check
 func isEvenNumber(number: Int) -> Bool {
     return number % 2 == 0
 }
