@@ -11,7 +11,7 @@ class TableViewController: UITableViewController {
         self.tableView.sectionIndexBackgroundColor = UIColor.blackColor()
     }
 }
-
+//Delegate Protocol Methods
 extension TableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
