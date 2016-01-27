@@ -151,6 +151,13 @@ let mappedNumber = numbers.map ({ (number: Int) -> Int in
     return result
 })
 
+func isEvenNumber(number: Int) -> Bool {
+    return number % 2 == 0
+}
+
+isEvenNumber(25)
+isEvenNumber(20)
+
 
 
 
