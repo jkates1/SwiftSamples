@@ -17,7 +17,7 @@ let str = yourCorpUrl
 let reversed = String(str.characters.reverse())
 print(reversed)
 
-//Not emphasizing performance or Type method... off the top of my head without digging into abstract string/char library functions (or extending them)
+//Not emphasizing performance or using Type method... off the top of my head without digging into abstract string/char library functions (or extending them)
 func reverseString() {
     
     let string2Reverse = yourCorpUrl

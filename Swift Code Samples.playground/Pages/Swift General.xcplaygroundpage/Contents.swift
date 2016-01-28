@@ -9,10 +9,10 @@ func mutateString(inout str: String) {
     str = "Hello "
     print(str)
 }
-//Outside of Funciton Scope
+//: Outside of Funciton Scope
 mutateString(&str)
 
-//Sum of Numbers given in variadic argument
+//: Sum of Numbers given in variadic argument
 func sumOf(numbers: Int...) -> Int {
     var sum = 0
     
@@ -24,7 +24,7 @@ func sumOf(numbers: Int...) -> Int {
 
 sumOf(42,597,12)
 
-//Average of Numbers given in variable length argument
+//: Average of Numbers given in variable length argument
 func averageOf(numbers: Double...) -> Double {
     
     let divisor = Double(numbers.count)
@@ -40,7 +40,7 @@ func averageOf(numbers: Double...) -> Double {
 
 averageOf(1,3,5,9,22,3)
 
-//Assign Pattern Match Case to Constant
+//: Assign Pattern Match Case to Constant
 let vegetable = "red pepper"
 
 switch vegetable {
@@ -55,7 +55,7 @@ default:
     print("Everything tastes good in soup")
 }
 
-//Return Multiple Values in Tuple
+//: Return Multiple Values in Tuple
 func calculateStatistics(scores: [Int]) -> (min: Int, max: Int, sum: Int) {
     var min = scores[0]
     var max = scores[0]
@@ -78,7 +78,7 @@ let statistics = calculateStatistics([5,3,100,3,9])
 print(statistics.sum)
 print(statistics.2)
 
-//Nested Function
+//: Nested Function
 func makeIncrementer() -> ((Int) -> Int) {
     func addOne(number: Int) -> Int {
     return 1 + number
@@ -100,7 +100,7 @@ var addedNumbers = addTwoNumbers()
 
 addedNumbers(1,5)
 
-//More Func Returning Func examples for shortening expression
+//: More Function Returning Func examples for shortening expression
 func printTwoLines() -> ((String) -> String) {
     func printWhatISay(sayWhat: String) -> String {
         return "Say What \(sayWhat)"
@@ -125,7 +125,7 @@ let addedNums = addTwoNumbersTogether()
 
 addedNumbers(2,23)
 
-//Function taking function as argument
+//: Function taking function as argument
 
 func hasAnyMatches(list: [Int], condition: (Int) -> Bool) -> Bool {
     
@@ -151,7 +151,7 @@ let mappedNumber = numbers.map ({ (number: Int) -> Int in
     return result
 })
 
-//Simple Even number check
+//: Simple Even number check
 func isEvenNumber(number: Int) -> Bool {
     return number % 2 == 0
 }

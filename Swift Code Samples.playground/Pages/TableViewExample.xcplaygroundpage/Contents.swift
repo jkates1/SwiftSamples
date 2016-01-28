@@ -8,7 +8,6 @@ class TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         self.tableView.delegate = self
-        self.tableView.sectionIndexBackgroundColor = UIColor.blackColor()
     }
 }
 //Delegate Protocol Methods
@@ -42,5 +41,5 @@ extension TableViewController {
 
 let thisTable = TableViewController()
 thisTable.tableData
-thisTable.view!
 XCPlaygroundPage.currentPage.liveView = thisTable.view
+
