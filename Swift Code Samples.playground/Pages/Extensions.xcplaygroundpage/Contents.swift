@@ -12,9 +12,10 @@ extension UIColor {
 }
 
 extension Array {
-    ///Returns random element from Array or nil if empty array or greater than Int.max
+    ///Returns random element from Array or nil if empty array
+    
     func randomItem() ->  Element? {
-        guard self.count >= 1 && self.count <= Int.max else {
+        guard self.count >= 1 else {
             return nil
         }
         let index = Int(arc4random_uniform(UInt32(self.count)))

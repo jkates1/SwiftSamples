@@ -51,7 +51,7 @@ func myFilter<T>(source: [T], predicate:(T) -> Bool) -> [T] {
 evens = myFilter(Array(1...10), predicate: {
     $0 % 2 == 0
 })
-//Filter and Find all elements that start with String before M (alphabetically)
+//Filter and Find all elements that start with Str ing before M (alphabetically)
 var filteredString = myFilter(["John","Lisa","Don","Phil","Robert"], predicate: {
     $0 < "m"
 })
@@ -140,10 +140,34 @@ mapArray.map { (diameter) in
 }
 
 
+//: Simple Error Handling Example
 
+enum Errors: ErrorType {
+    case NotEven
+    case NoMatch
+}
 
+func returnOnlyEvens(number: Int) throws -> Int  {
+    guard number % 2 == 0 else {
+        throw Errors.NotEven
+    }
+    return number
+}
 
+func findStringMatch(word: String) throws  {
+    guard word == "Jessie" else {
+        throw Errors.NoMatch
+    }
+    print("Found Match")
+}
 
+do {
+    try print(returnOnlyEvens(4))
+    try findStringMatch("Carrie")
+    
+} catch {
+    print(error)
+}
 
-
+print("found")
 
