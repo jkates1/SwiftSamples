@@ -2,6 +2,6 @@
 <playground version='6.0' target-platform='ios'>
     <pages>
         <page name='Views'/>
-        <page name='Untitled Page 2'/>
+        <page name='Views2'/>
     </pages>
 </playground>
