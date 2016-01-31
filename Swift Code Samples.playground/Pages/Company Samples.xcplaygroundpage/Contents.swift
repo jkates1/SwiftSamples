@@ -102,14 +102,14 @@ class SampleTableView: UITableView {
 
 //Generic Fib Sequence Generator Func
 //Returns Array of Fibonacci Sequence Integers
-func enumerateFibs() -> [Int] {
+func enumerateFibs() -> [Double] {
     
-    var fibArray = [Int]()
-    var leftSummands = 0
-    var rightSummands = 0
-    var currentSum = 0
+    var fibArray = [Double]()
+    var leftSummands: Double = 0
+    var rightSummands: Double = 0
+    var currentSum: Double = 0
     
-    while currentSum <= 1000 {
+    while currentSum <= 100000 {
         
         switch (leftSummands, rightSummands) {
         case (0,0):
@@ -134,37 +134,7 @@ func enumerateFibs() -> [Int] {
 
 enumerateFibs()
 
-class FibonacciGenerator: GeneratorType {
-    var n1 = 0
-    var n2 = 0
-    
-    func next() -> Int? {
-        switch (n1, n2) {
-        case (0, 0):
-            n2 = 1
-            return 1
-        case (0, 1):
-            n1 = 1
-            return 1
-        default:
-            let result = n1 + n2
-            n1 = n2
-            n2 = result
-            return result
-        }
-    }
-}
 
-let seq = GeneratorSequence(FibonacciGenerator())
-for n in seq {
-    if (n > 100000) {
-        break;
-    }
-    print("\(n), ")
-}
-print("...")
-
-////
 
 
 
