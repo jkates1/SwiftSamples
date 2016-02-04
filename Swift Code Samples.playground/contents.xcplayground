@@ -8,5 +8,6 @@
         <page name='TableViewExample'/>
         <page name='jSonParseExample'/>
         <page name='Extensions'/>
+        <page name='Protocol Examples'/>
     </pages>
 </playground>
