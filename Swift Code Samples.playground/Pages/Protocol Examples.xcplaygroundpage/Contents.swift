@@ -52,9 +52,9 @@ extension Car {
     init(paintColor: String, paintFinish: String) {
         self.paintColor = paintColor
         self.paintFinish = paintFinish
-        self.vehicleType = .Car
+        vehicleType = .Car
         delegate = self
-        self.delegate?.didCreateVehicle()
+        delegate?.didCreateVehicle()
     }
     
 }
@@ -67,7 +67,7 @@ struct Semi: Paintable {
     var vehicleType: VehicleType
     var paintColor: String {
         didSet {
-            self.delegate?.didFinishPainting()
+            delegate?.didFinishPainting()
         }
     }
     var paintFinish: String
@@ -85,9 +85,9 @@ extension Semi {
     init(paintColor: String, paintFinish: String) {
         self.paintColor = paintColor
         self.paintFinish = paintFinish
-        self.vehicleType = .Semi
-        self.delegate = self
-        self.delegate?.didCreateVehicle()
+        vehicleType = .Semi
+        delegate = self
+        delegate?.didCreateVehicle()
     }
 }
 
