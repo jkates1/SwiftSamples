@@ -2,6 +2,8 @@ import Foundation
 
 protocol Paintable: PaintDelegate {
     
+    typealias Vehicle
+    var vehicleType: Vehicle { get }
     var paintColor: String { get }
     var paintFinish: String { get }
     
@@ -9,14 +11,22 @@ protocol Paintable: PaintDelegate {
 
 protocol PaintDelegate {
    func didFinishPainting()
-   func didCreateCar()
+   func didCreateVehicle()
     
+}
+
+enum VehicleType: String {
+    case Car
+    case Truck
+    case Semi
+    case MotorCycle
 }
 
 //Conforms to Paintable and PaintDelegate
 
 struct Car: Paintable {
-    
+
+    var vehicleType: VehicleType
     var paintColor: String {
         didSet {
             self.delegate?.didFinishPainting()
@@ -31,7 +41,7 @@ struct Car: Paintable {
     func didFinishPainting() {
         print("New Paint Job Finished")
     }
-    func didCreateCar() {
+    func didCreateVehicle() {
         print("Car Created")
     }
     
@@ -42,14 +52,51 @@ extension Car {
     init(paintColor: String, paintFinish: String) {
         self.paintColor = paintColor
         self.paintFinish = paintFinish
+        self.vehicleType = .Car
         delegate = self
-        self.delegate?.didCreateCar()
+        self.delegate?.didCreateVehicle()
     }
     
 }
 
 var newCar = Car(paintColor: "Blue", paintFinish: "Glossy")
 newCar.paintColor = "Red"
+
+struct Semi: Paintable {
+    
+    var vehicleType: VehicleType
+    var paintColor: String {
+        didSet {
+            self.delegate?.didFinishPainting()
+        }
+    }
+    var paintFinish: String
+    var delegate: PaintDelegate?
+    
+    func didCreateVehicle() {
+        print("Created New Semi")
+    }
+    func didFinishPainting() {
+        print("Semi has been Painted")
+    }
+}
+
+extension Semi {
+    init(paintColor: String, paintFinish: String) {
+        self.paintColor = paintColor
+        self.paintFinish = paintFinish
+        self.vehicleType = .Semi
+        self.delegate = self
+        self.delegate?.didCreateVehicle()
+    }
+}
+
+var newVehicle = Semi(paintColor: "Grey", paintFinish: "Flat")
+newVehicle.paintColor = "Black"
+
+
+
+
 
 
 
