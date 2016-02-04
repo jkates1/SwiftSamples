@@ -27,12 +27,7 @@ struct Car: Paintable {
         return "Car color is \(paintColor) and the finish is \(paintFinish)"
     }
     var delegate: PaintDelegate?
-    init(paintColor: String, paintFinish: String) {
-        self.paintColor = paintColor
-        self.paintFinish = paintFinish
-        delegate = self
-        self.delegate?.didCreateCar()
-    }
+
     func didFinishPainting() {
         print("New Paint Job Finished")
     }
@@ -41,9 +36,22 @@ struct Car: Paintable {
     }
     
 }
+//Create custom initializer
+extension Car {
+    
+    init(paintColor: String, paintFinish: String) {
+        self.paintColor = paintColor
+        self.paintFinish = paintFinish
+        delegate = self
+        self.delegate?.didCreateCar()
+    }
+    
+}
 
 var newCar = Car(paintColor: "Blue", paintFinish: "Glossy")
 newCar.paintColor = "Red"
+
+
 
 
 
