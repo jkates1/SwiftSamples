@@ -9,5 +9,6 @@
         <page name='jSonParseExample'/>
         <page name='Extensions'/>
         <page name='Protocol Examples'/>
+        <page name='ErrorHandling'/>
     </pages>
 </playground>

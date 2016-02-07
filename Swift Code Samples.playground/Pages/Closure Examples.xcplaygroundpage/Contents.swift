@@ -14,3 +14,6 @@ let functionArg = closureExample("Jeremy")
 
 let myName = "FullName: " + functionArg()
 print(myName)
+
+
+
