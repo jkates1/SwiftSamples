@@ -174,7 +174,23 @@ multiplyIntegers(2,3,5,2,5)
 
 
 
+//*****Function Currying******//
+func greetingForName(name: String) -> (String) -> String {
+    func greeting(greeting: String) -> String {
+        return "\(greeting) \(name)"
+    }
+    return greeting
+}
+//Holds function of the return type (String) -> String
+let greeterFunction = greetingForName("Jeremy")
+//Function scope uses Jeremy to enclosed function--greeting--which takes in Jeremy from original outer scope reference
+let theGreeting = greeterFunction("Hello")
 
+//More Concise version but I believe this sort of currying is deprecated in 3.0
+func greeting(greeting: String)(name: String) -> String {
+    return "\(greeting) \(name)"
+}
 
-
+let friendlyGreeting = greeting("Hello")
+let newGreeting = friendlyGreeting(name: "Jeremy")
 
