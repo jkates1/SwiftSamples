@@ -59,9 +59,12 @@ var filteredString = myFilter(["John","Lisa","Don","Phil","Robert"], predicate: 
 
 
 //*********REDUCING************//
-//Reduce is a tremendously versatile Array method that executes a function
+//Reduce is a versatile Array method that executes a function
 // once for each element, accumulating the results.
 
+var sum = Array(1...100).reduce(0) { (total, number) in
+    total + number
+}
 
 var evenSum = Array(1...10)
     .filter{ (number) in
@@ -73,6 +76,7 @@ print(evenSum)
 
 let maxNumber = Array(1...10).reduce(0) { (total, number) in
     max(total, number)
+    
 }
 print(maxNumber)
 
@@ -125,49 +129,39 @@ mapArray.map { (number: Int) in
     return 3 * number.predecessor()
 }
 
-mapArray.map { (number: Int) in
+let numberPlusNumberPlus2 = mapArray.map { (number: Int) in
     return number + number.advancedBy(2)
 }
 
-mapArray.map { (number) in
+let numberX3 = mapArray.map { (number) in
     return String(number * 3)
 }
-//Return Circumference given diameter
-mapArray.map { (diameter) in
-    
+//Return Array Circumference given diameter for each element
+let circumferences = mapArray.map { (diameter) in
     return Double(diameter) * M_PI
     
 }
 
 
-//: Simple Error Handling Example
-
-enum Errors: ErrorType {
-    case NotEven
-    case NoMatch
-}
-
-func returnOnlyEvens(number: Int) throws -> Int  {
-    guard number % 2 == 0 else {
-        throw Errors.NotEven
+///General Examples of Recursion
+func sumRecursively(numbers: [Int], _ total: Int = 0) -> Int {
+    if let head = numbers.first {
+        let tail = Array(numbers.dropFirst())
+        return sumRecursively(tail, head + total)
+    } else {
+        return total
     }
-    return number
 }
 
-func findStringMatch(word: String) throws  {
-    guard word == "Jessie" else {
-        throw Errors.NoMatch
-    }
-    print("Found Match")
-}
+let myNumbers = [1,2,3,4,5]
+sumRecursively(myNumbers) // 15
 
-do {
-    try print(returnOnlyEvens(4))
-    try findStringMatch("Carrie")
-    
-} catch {
-    print(error)
-}
 
-print("found")
+let uglyArray = [1,5,3,2,8,10,12,19,29,23]
+
+let newArray = uglyArray.split(1) { (number) in
+number < 3
+}
+print(newArray.description)
+
 

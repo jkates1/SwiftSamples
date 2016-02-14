@@ -1,7 +1,7 @@
 import Foundation
 
 protocol Paintable: PaintDelegate {
-    
+    //Type Alias for Example -- Not Real World Usage
     typealias Vehicle
     var vehicleType: Vehicle { get }
     var paintColor: String { get }
@@ -62,11 +62,14 @@ extension Car {
 var newCar = Car(paintColor: "Blue", paintFinish: "Glossy")
 newCar.paintColor = "Red"
 
+
+//Create New Vehicle
 struct Semi: Paintable {
     
     var vehicleType: VehicleType
     var paintColor: String {
         didSet {
+            //New color alert the delegate
             delegate?.didFinishPainting()
         }
     }
@@ -80,7 +83,7 @@ struct Semi: Paintable {
         print("Semi has been Painted")
     }
 }
-
+//Custom Init
 extension Semi {
     init(paintColor: String, paintFinish: String) {
         self.paintColor = paintColor
