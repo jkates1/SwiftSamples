@@ -164,4 +164,17 @@ number < 3
 }
 print(newArray.description)
 
+//Recursion Runtime O(2^N)
+
+func f(n: Int) -> Int {
+    if(n <= 0) {
+        return 1
+    }
+    return f(n-1) + f(n-1)
+}
+
+f(4)
+
+
+
 
