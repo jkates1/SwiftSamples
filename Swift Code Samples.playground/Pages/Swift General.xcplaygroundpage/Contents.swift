@@ -186,7 +186,7 @@ let greeterFunction = greetingForName("Jeremy")
 //Function scope uses Jeremy to enclosed function--greeting--which takes in Jeremy from original outer scope reference
 let theGreeting = greeterFunction("Hello")
 
-//More Concise version but I believe this sort of currying is deprecated in 3.0
+//More Concise version but I believe this sort of currying syntax is deprecated in Swift 3.0
 func greeting(greeting: String)(name: String) -> String {
     return "\(greeting) \(name)"
 }
