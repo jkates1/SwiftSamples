@@ -1,9 +1,14 @@
 
 //: Simple Error Handling Example
 
-enum Errors: ErrorType {
-    case NotEven
-    case NoMatch
+enum Errors: String, ErrorType {
+    
+    switch self {
+    case NotEven: return "There are no even numbers"
+    case NoMatch: return "There are no matches"
+    default:
+    return "There was an error"
+    }
 }
 
 func returnOnlyEvens(number: Int) throws -> Int  {
@@ -29,3 +34,4 @@ do {
 }
 
 print("found")
+
