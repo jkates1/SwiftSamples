@@ -25,3 +25,12 @@ let secondString = "lloeH"
 
 let equalsStrings = firstString.characters.sort() == secondString.characters.sort() ? true : false
 
+
+//Palindrome check
+
+let sourceString = "Palindrome"
+let possiblePalindrome = "emordnilaP"
+
+let isPalindrome = sourceString == String(possiblePalindrome.characters.reverse())
+
+
