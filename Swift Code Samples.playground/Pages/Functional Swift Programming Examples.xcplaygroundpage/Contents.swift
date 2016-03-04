@@ -147,6 +147,7 @@ let circumferences = mapArray.map { (diameter) in
 func sumRecursively(numbers: [Int], _ total: Int = 0) -> Int {
     if let head = numbers.first {
         let tail = Array(numbers.dropFirst())
+        //Tail returned as array sans the firt number
         return sumRecursively(tail, head + total)
     } else {
         return total
@@ -237,4 +238,4 @@ let goodToFire = goodShip.canEngageShip(enemyShip)
 let checkRange = enemyShip.position.inRange(200)
 
 
-closureExp()
+

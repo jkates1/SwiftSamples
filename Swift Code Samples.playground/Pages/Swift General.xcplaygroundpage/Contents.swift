@@ -194,3 +194,5 @@ func greeting(greeting: String)(name: String) -> String {
 let friendlyGreeting = greeting("Hello")
 let newGreeting = friendlyGreeting(name: "Jeremy")
 
+
+

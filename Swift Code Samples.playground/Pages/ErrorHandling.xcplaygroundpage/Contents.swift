@@ -3,12 +3,8 @@
 
 enum Errors: String, ErrorType {
     
-    switch self {
-    case NotEven: return "There are no even numbers"
-    case NoMatch: return "There are no matches"
-    default:
-    return "There was an error"
-    }
+    case NotEven = "No Even Number Found"
+    case NoMatch = "There are no matches"
 }
 
 func returnOnlyEvens(number: Int) throws -> Int  {
@@ -34,4 +30,3 @@ do {
 }
 
 print("found")
-
