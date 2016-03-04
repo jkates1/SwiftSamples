@@ -41,9 +41,11 @@ let isPalindrome = sourceString == String(possiblePalindrome.characters.reverse(
 let normalString = "This is an example string".componentsSeparatedByString(" ")
 
 let headline = normalString.map { (var word: String) -> String in
-    
+    //Assign first character of each word and remove old one
     let firstCharacter = word.removeAtIndex(word.startIndex)
+    //Return whole word with new uppercase first character
     return "\(String(firstCharacter).uppercaseString)\(word)"
+    
 }.joinWithSeparator(" ")
 
 print(headline)
