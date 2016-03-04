@@ -1,4 +1,6 @@
 
+import Foundation
+
 //Are any two strings permutation of another using encoded value
 
 let string1EncodedValues = "Hello".unicodeScalars.map() {
@@ -34,3 +36,16 @@ let possiblePalindrome = "emordnilaP"
 let isPalindrome = sourceString == String(possiblePalindrome.characters.reverse())
 
 
+//Make each first character in word Uppercase 
+
+let normalString = "This is an example string".componentsSeparatedByString(" ")
+
+let headline = normalString.map { (var word: String) -> String in
+    
+    let firstCharacter = word.removeAtIndex(word.startIndex)
+    return "\(String(firstCharacter).uppercaseString)\(word)"
+}.joinWithSeparator(" ")
+
+print(headline)
+
+//
