@@ -20,7 +20,7 @@ print(result1)
 func closureExample(lastName: String) -> (firstName: String) -> String {
     
     func addLastName(firstName: String) -> String {
-        let fullName = firstName + " Kates"
+        let fullName = firstName + " " + lastName
         return fullName
     }
     
