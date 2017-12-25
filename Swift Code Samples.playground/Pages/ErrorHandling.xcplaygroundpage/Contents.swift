@@ -1,7 +1,7 @@
 
 //: Simple Error Handling Example
 
-enum Errors: String, ErrorType {
+enum Errors: String, Error {
     
     case NotEven = "No Even Number Found"
     case NoMatch = "There are no matches"
@@ -22,11 +22,22 @@ func findStringMatch(word: String) throws  {
 }
 
 do {
-    try print(returnOnlyEvens(4))
-    try findStringMatch("Carrie")
+    try print(returnOnlyEvens(number: 3))
     
 } catch {
     print(error)
 }
 
-print("found")
+do {
+    try print(findStringMatch(word: "Carrie"))
+    //bind to error
+} catch let matchError {
+    print(matchError)
+}
+do {
+    //Match found
+    try print(findStringMatch(word: "Jessie"))
+}
+
+
+
