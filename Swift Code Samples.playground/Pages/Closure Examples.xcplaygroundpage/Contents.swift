@@ -17,7 +17,7 @@ let result2 = performOperation(left: 23, right: 21, operate: { $0 % $1 })
 print(result1)
 
 //Add LastName Example
-func closureExample(lastName: String) -> (firstName: String) -> String {
+func closureExample(lastName: String) -> (_ firstName: String) -> String {
     
     func addLastName(firstName: String) -> String {
         let fullName = firstName + " " + lastName
@@ -27,9 +27,9 @@ func closureExample(lastName: String) -> (firstName: String) -> String {
     return addLastName
 }
 
-let functionAsArgument = closureExample("Jeremy")
+let functionAsArgument = closureExample(lastName: "Jeremy")
 
-let myName = "FullName: " + functionAsArgument(firstName: "Jeremy")
+let myName = "FullName: " + functionAsArgument("Jeremy")
 print(myName)
 
 let listOfFirstNames = ["Jerry", "Chloe", "Linda", "Mike", "Brian"]
@@ -38,7 +38,7 @@ listOfFirstNames.map {
     $0 + " Davidson"
 }
 //Reverse List of Names Operator used as argument infers meaning for String class implementation
-let reverseNames = listOfFirstNames.sort(>)
+let reverseNames = listOfFirstNames.sorted(by: >)
 print(reverseNames)
 
 //Closure Expression

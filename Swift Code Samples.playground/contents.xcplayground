@@ -11,5 +11,6 @@
         <page name='ErrorHandling'/>
         <page name='Protocol Examples'/>
         <page name='Strings'/>
+        <page name='Swift4'/>
     </pages>
 </playground>

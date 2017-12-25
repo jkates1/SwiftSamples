@@ -5,12 +5,12 @@ import Foundation
 //In Out
 var str = "Initial String Scope"
 
-func mutateString(inout str: String) {
+func mutateString(str: inout String) {
     str = "Hello "
     print(str)
 }
 //: Outside of Funciton Scope
-mutateString(&str)
+mutateString(str: &str)
 
 //: Sum of Numbers given in variadic argument
 func sumOf(numbers: Int...) -> Int {
@@ -22,7 +22,7 @@ func sumOf(numbers: Int...) -> Int {
     return sum
 }
 
-sumOf(42,597,12)
+sumOf(numbers: 42,597,12)
 
 //: Average of Numbers given in variable length argument
 func averageOf(numbers: Double...) -> Double {
@@ -38,7 +38,7 @@ func averageOf(numbers: Double...) -> Double {
     return numSum / divisor
 }
 
-averageOf(1,3,5,9,22,3)
+averageOf(numbers: 1,3,5,9,22,3)
 
 //: Assign Pattern Match Case to Constant
 let vegetable = "red pepper"
@@ -74,7 +74,7 @@ func calculateStatistics(scores: [Int]) -> (min: Int, max: Int, sum: Int) {
     
 }
 
-let statistics = calculateStatistics([5,3,100,3,9])
+let statistics = calculateStatistics(scores: [5,3,100,3,9])
 print(statistics.sum)
 print(statistics.2)
 
@@ -143,7 +143,7 @@ func lessThanTen(number: Int) -> Bool {
 
 var numbers = [20,19,7,12]
 
-hasAnyMatches(numbers, condition: lessThanTen)
+hasAnyMatches(list: numbers, condition: lessThanTen)
 
 
 let mappedNumber = numbers.map ({ (number: Int) -> Int in
@@ -156,8 +156,8 @@ func isEvenNumber(number: Int) -> Bool {
     return number % 2 == 0
 }
 
-isEvenNumber(25)
-isEvenNumber(20)
+isEvenNumber(number: 25)
+isEvenNumber(number: 20)
 
 func multiplyIntegers(numbers: Int...) -> Int {
     
@@ -169,30 +169,9 @@ func multiplyIntegers(numbers: Int...) -> Int {
     return product
 }
 
-multiplyIntegers(2,3,5,2,5)
+multiplyIntegers(numbers: 2,3,5,2,5)
 
 
-
-
-//*****Function Currying******//
-func greetingForName(name: String) -> (String) -> String {
-    func greeting(greeting: String) -> String {
-        return "\(greeting) \(name)"
-    }
-    return greeting
-}
-//Holds function of the return type (String) -> String
-let greeterFunction = greetingForName("Jeremy")
-//Function scope uses Jeremy to enclosed function--greeting--which takes in Jeremy from original outer scope reference
-let theGreeting = greeterFunction("Hello")
-
-//More Concise version but I believe this sort of currying syntax is deprecated in Swift 3.0
-func greeting(greeting: String)(name: String) -> String {
-    return "\(greeting) \(name)"
-}
-
-let friendlyGreeting = greeting("Hello")
-let newGreeting = friendlyGreeting(name: "Jeremy")
 
 
 

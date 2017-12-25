@@ -2,7 +2,7 @@ import Foundation
 
 protocol Paintable: PaintDelegate {
     //Type Alias for Example -- Not Real World Usage
-    typealias Vehicle
+    associatedtype Vehicle
     var vehicleType: Vehicle { get }
     var paintColor: String { get }
     var paintFinish: String { get }
@@ -99,12 +99,42 @@ newVehicle.paintColor = "Black"
 
 
 
+//Codibility solution//
+public func solution(_ A : inout [Int]) -> Int {
+    
+    var hashTable = [Int: Bool]()
+    
+    for (_,v) in A.enumerated() {
+        
+        if hashTable.removeValue(forKey: v) == nil {
+          hashTable[v] = true
+        }
+    }
+    return hashTable.first!.key
+}
 
+var testArray = [1,3,1,3,5,7,5,9,11,9,7]
 
+solution(&testArray)
 
+/////////////////////
 
+public func insertionSort(arrayToSort: inout [Int]) {
+    for (i,v) in arrayToSort.enumerated() {
+        guard i != 0 else { continue }
+        var j = i - 1
+        var tmp = arrayToSort[i]
+        while j >= 0 && arrayToSort[j] > tmp {
+            
+            arrayToSort[j + 1] = arrayToSort[j]
+            j -= 1
+        }
+        
+        arrayToSort[j + 1] = tmp
+    }
+}
 
+var numms = [11,12,3,5,4,7,9]
 
-
-
+insertionSort(arrayToSort: &numms)
 

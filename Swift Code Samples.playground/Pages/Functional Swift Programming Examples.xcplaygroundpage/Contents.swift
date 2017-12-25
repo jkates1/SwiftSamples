@@ -48,11 +48,11 @@ func myFilter<T>(source: [T], predicate:(T) -> Bool) -> [T] {
     return result
 }
 //Works the same as Array filter method
-evens = myFilter(Array(1...10), predicate: {
+evens = myFilter(source: Array(1...10), predicate: {
     $0 % 2 == 0
 })
 //Filter and Find all elements that start with Str ing before M (alphabetically)
-var filteredString = myFilter(["John","Lisa","Don","Phil","Robert"], predicate: {
+var filteredString = myFilter(source: source: ["John","Lisa","Don","Phil","Robert"], predicate: {
     $0 < "m"
 })
 
@@ -92,7 +92,7 @@ print(strings2)
 
 let strings3 = ["Frank", "Devin", "Mark","jerry"].reduce("") { (name, upperCase) in
     
-    return name + upperCase.uppercaseString + " "
+    return name + upperCase.uppercased() + " "
 
 }
 //Take input array of string digits and return
@@ -148,14 +148,14 @@ func sumRecursively(numbers: [Int], _ total: Int = 0) -> Int {
     if let head = numbers.first {
         let tail = Array(numbers.dropFirst())
         //Tail returned as array sans the firt number
-        return sumRecursively(tail, head + total)
+        return sumRecursively(numbers: tail, head + total)
     } else {
         return total
     }
 }
 
 let myNumbers = [1,2,3,4,5]
-sumRecursively(myNumbers) // 15
+sumRecursively(numbers: <#[Int]#>, myNumbers) // 15
 
 
 let uglyArray = [1,5,3,2,8,10,12,19,29,23]
@@ -171,10 +171,10 @@ func f(n: Int) -> Int {
     if(n <= 0) {
         return 1
     }
-    return f(n-1) + f(n-1)
+    return f(n: n-1) + f(n-1)
 }
 
-f(4)
+f(n: 4)
 
 
 //********Thinking Functional Examples ***********//

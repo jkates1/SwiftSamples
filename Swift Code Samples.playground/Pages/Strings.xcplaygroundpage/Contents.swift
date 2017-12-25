@@ -25,28 +25,20 @@ let equalStrings = string1EncodedValues == string2EncodedValues ? true : false
 let firstString = "Hello"
 let secondString = "lloeH"
 
-let equalsStrings = firstString.characters.sort() == secondString.characters.sort() ? true : false
-
-
-//Palindrome check
-
-let sourceString = "Palindrome"
-let possiblePalindrome = "emordnilaP"
-
-let isPalindrome = sourceString == String(possiblePalindrome.characters.reverse())
-
+let equalsStrings = firstString.characters.sorted() == secondString.characters.sorted() ? true : false
 
 //Make each first character in word Uppercase 
 
-let normalString = "This is an example string".componentsSeparatedByString(" ")
+let normalString = "This is an example string".components(separatedBy: " ")
 
-let headline = normalString.map { (var word: String) -> String in
+let headline = normalString.map { (word: String) -> String in
+    var currentWord = word
     //Assign first character of each word and remove old one
-    let firstCharacter = word.removeAtIndex(word.startIndex)
+    let firstCharacter = currentWord.remove(at: currentWord.startIndex)
     //Return whole word with new uppercase first character
-    return "\(String(firstCharacter).uppercaseString)\(word)"
+    return "\(String(firstCharacter).uppercased())\(currentWord)"
     
-}.joinWithSeparator(" ")
+    }.joined(separator: " ")
 
 print(headline)
 
